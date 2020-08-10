@@ -1,0 +1,102 @@
+<!DOCTYPE html> 
+<head> 
+    <title> 
+        Dynamically display width and height of window, document and screen 
+    </title> 
+
+    <!-- Load JQuery library. Must be done before any other scripting -->
+    <script src= 
+        "https://code.jquery.com/jquery-2.2.4.min.js"> 
+    </script>
+    
+    <style>
+        .flex-container {
+          display: flex;
+          flex-direction: column;
+          flex-basis: 0;
+          background-color: DodgerBlue;
+        }
+        
+        .flex-container > div {
+          background-color: #f1f1f1;
+          width: auto;
+          margin: auto;
+          line-height: auto;
+          font-size: auto;
+        }
+
+        #label{
+            text-align: left;
+        }
+
+        #value{
+            text-align: right; 
+        }
+    </style>
+
+</head> 
+  
+<body> 
+    <h1 style="color: green"> 
+        Resize Me!!
+    </h1> 
+
+      
+    <div class="flex-container">
+        <div id="label">
+            Window Height: <span id="value" class="windowHeight"></span>
+        </div>
+        
+        <div id="label">
+            Windows Width: <span id="value" class="windowWidth"></span> 
+        </div>
+        <!-- <div id="label">
+            Document Height: <span id="value" class="documentHeight"></span> 
+        </div>
+
+        <div id="label">
+            Document Width: <span id="value" class="documentWidth"></span> 
+        </div> -->
+
+<!--  Comment out SCREEN parameters to save space because height and width don't change -->
+        <!-- <div id="label">
+            Screen Height: <span id="value" class="screenHeight"></span> 
+        </div>
+            
+        <div id="label">
+            Screen Width:<span id="value" class="screenWidth"></span> 
+        </div> -->
+        
+    </div> 
+      
+    <script type="text/javascript"> 
+        $(window).resize(function () { 
+            windowHeight = $(window).height(); 
+            windowWidth = $(window).width(); 
+            documentHeight = $(document).height(); 
+            documentWidth = $(document).width(); 
+            screenHeight = screen.height; 
+            screenWidth = screen.width; 
+  
+            document.querySelector('.windowHeight').textContent 
+                        = windowHeight; 
+            document.querySelector('.windowWidth').textContent 
+                        = windowWidth;
+            // Comment out DOCUMENT parameters to save space because
+            // height and width don't change  
+            // document.querySelector('.documentHeight').textContent 
+            //            = documentHeight; 
+            // document.querySelector('.documentWidth').textContent 
+            //            = documentWidth;
+
+            // Comment out SCREEN parameters to save space because
+            // height and width don't change 
+            // document.querySelector('.screenHeight').textContent 
+            //             = screenHeight; 
+            // document.querySelector('.screenWidth').textContent 
+            //             = screenWidth; 
+        }); 
+    </script> 
+</body> 
+  
+</html> 

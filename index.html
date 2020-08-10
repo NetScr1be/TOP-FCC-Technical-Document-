@@ -1,0 +1,557 @@
+<!doctype html>
+<!--[if lte IE 9]>
+<html lang="en" class="oldie">
+<![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+<head>
+
+</head>
+
+<body>
+
+<!-- For unspecified reasons, the code to be tested has to be wrapped in the comment
+     below and contain false/duplicate <head> and <body> elements -->
+
+<!-- partial:index.partial.html -->
+
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="./fcc.style.css">
+
+    <title>
+        TOP FCC RWD Technical Document Project
+    </title>
+
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+</head>
+
+<style>
+    /*  Media queries with standard breakpoints for phone, tablet, laptop, desktop */
+
+    /*  Set  grid-template-columns: auto; for the smaller devices for now and comment out larger devices*/
+
+    /* Extra small devices (phones, 600px and down) */
+    @media only screen and (max-width: 600px) {
+        .main-doc {
+
+            grid-template-columns: auto;
+
+        }
+
+    }
+
+    /* Small devices (portrait tablets and large phones, 600px and up) */
+    @media only screen and (min-width: 600px) {
+        .main-doc {
+
+            grid-template-columns: auto;
+
+        }
+
+    }
+
+    /* Medium devices (landscape tablets, 768px and up) */
+    @media only screen and (min-width: 768px) {
+        .main-doc {
+
+            grid-template-columns: auto;
+
+        }
+
+    }
+
+    /* Large devices (laptops/desktops, 992px and up) */
+    /* @media only screen and (min-width: 992px) {...} */
+
+    /* Extra large devices (large laptops and desktops, 1200px and up) */
+    /* @media only screen and (min-width: 1200px) {...} */
+</style>
+
+<body>
+
+
+
+<!-- partial:index.partial.html -->
+
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="./fcc.style.css">
+    <link rel="stylesheet" href="./local.style.css">
+    <link rel="stylesheet" href="./sticky.navbar.css">
+
+    
+    <!-- Load JQuery library. Must be done before any other scripting -->
+
+    <!-- Change URL from original to point at local file -->
+    <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
+
+    <script src="bundle.js"></script>
+
+
+    <!-- <script src= 
+            "https://code.jquery.com/jquery-2.2.4.min.js"> 
+        </script> -->
+
+    <!-- <script src="https://code.jquery.com/jquery-3.5.0.js">
+    </script> -->
+
+    <!-- Script to make navbar scroll 
+        (requires /home/patrick/OdinProject/FCC/TOP-FCC-Technical-Document-/sticky.navbar.css) -->
+
+        <script>
+                ./sticky.navbar.js
+        </script>
+
+</head>
+
+<body>
+
+    <main id="main-doc">
+
+        <div class="header">
+
+            <header>
+
+                <h1>CSS Media Queries</h1>
+
+            </header>
+
+        </div>
+
+
+
+        <div class="WindowParameters">
+
+            <h2>Displaying screen parameters dynamically to test if @Media Query rules are working</h2>
+
+            <div class="WindowParameters" id="label">
+
+                <p>
+                    Resize the window to show window height & width dynamically
+                </p>
+
+                <div class="WindowParameters" id="label">
+                    Window Height: <span id="value" class="windowHeight"></span>
+                </div>
+
+                <div class="WindowParameters" id="label">
+                    Windows Width: <span id="value" class="windowWidth"></span>
+                </div>
+                <!-- <div id="label">
+                Document Height: <span id="value" class="documentHeight"></span> 
+            </div>
+    
+            <div id="label">
+                Document Width: <span id="value" class="documentWidth"></span> 
+            </div> -->
+
+                <!--  Comment out SCREEN parameters to save space because height and width don't change -->
+                <!-- <div id="label">
+                Screen Height: <span id="value" class="screenHeight"></span> 
+            </div>
+                
+            <div id="label">
+                Screen Width:<span id="value" class="screenWidth"></span> 
+            </div> -->
+
+            </div>
+
+            <script type="text/javascript">
+                $(window).resize(function () {
+                    windowHeight = $(window).height();
+                    windowWidth = $(window).width();
+                    documentHeight = $(document).height();
+                    documentWidth = $(document).width();
+                    screenHeight = screen.height;
+                    screenWidth = screen.width;
+
+                    document.querySelector('.windowHeight').textContent = windowHeight;
+                    document.querySelector('.windowWidth').textContent = windowWidth;
+                    // Comment out DOCUMENT parameters to save space because
+                    // height and width don't change  
+                    // document.querySelector('.documentHeight').textContent 
+                    //            = documentHeight; 
+                    // document.querySelector('.documentWidth').textContent 
+                    //            = documentWidth;
+
+                    // Comment out SCREEN parameters to save space because
+                    // height and width don't change 
+                    // document.querySelector('.screenHeight').textContent 
+                    //             = screenHeight; 
+                    // document.querySelector('.screenWidth').textContent 
+                    //             = screenWidth; 
+                });
+            </script>
+
+        </div>
+
+        <div class="ToC">
+            <nav class="ToC" id="navbar">
+
+                <header>
+                    <b>
+                        Media Queries
+                    </b>
+                </header>
+                
+
+                <ol class="ToC" type="1">
+                    <li><a href="#Left_Section_Target">Media Queries</a></li>
+                            <ol>
+                                <li><a class="nav-link" href="#Purpose">Purpose</a></li>
+
+                                <li><a class="nav-link" href="#Usage">Usage</a></li>
+
+                                <li><a class="nav-link" href="#Syntax">Syntax</a></li>
+                            </ol>
+                    <li><a href="#Right_Section_Target">Details</a></li>
+                            <ol>
+                                <li><a class="nav-link" href="#Media_Types">Media Types</a></li>
+
+                                <li><a class="nav-link" href="#Security">Security</a></li>
+
+                                <li><a class="nav-link" href="#Accessibility_Concerns">Accessibility Concerns</a></li>
+                            </ol>
+                    <li><a href="#Footer_Target">Footer</a></li>
+                </ol>c
+            </nav>
+
+        </div>
+
+
+
+        <div class="column1">
+
+            <header id="Left_Section_Target">
+
+                <b>
+                    <h3>
+                        Media Queries
+                    </h3>
+
+                </b>
+
+            </header>
+
+            <section class="main-section" id="Purpose">
+
+                <header>
+                    Purpose
+                </header>
+
+                <p>
+                    Media queries are a technique for delivering a tailored style sheet (responsive web design) to
+                    desktops, laptops, tablets, and mobile phones.
+                </p>
+
+                <p>
+                    Media queries can be used to check many things, such as:
+                    <ul>
+                        <li>
+                            width and height of the viewport
+                        </li>
+                        <li>
+                            width and height of the device
+                        </li>
+                        <li>
+                            orientation (is the tablet/phone in landscape or portrait mode?)
+                        </li>
+                        <li>
+                            resolution
+                        </li>
+                    </ul>
+
+                </p>
+
+                <p>
+                    Media features provide more specific details to media queries, by allowing to test for a specific
+                    feature of the user agent or display device. For example, you can apply styles to only those screens
+                    that are greater, or smaller, than a certain width.
+                </p>
+
+            </section>
+
+            <section class="main-section" id="Usage">
+
+                <header>
+                    Usage
+                </header>
+
+                <p>
+                    Media queries are useful when you want to modify your site or app depending on a device's general
+                    type (such as print vs. screen) or specific characteristics and parameters (such as screen
+                    resolution or browser viewport width).
+                </p>
+
+                <p>
+                    Media queries are used for the following:
+                    <ul>
+                        <li>
+                            To conditionally apply styles with the CSS @media and @import at-rules.
+                        </li>
+                        <li>
+                            To target specific media for the style, link, source, and other HTML elements with the
+                            media= attribute.
+                        </li>
+                        <li>
+                            To test and monitor media states using the Window.matchMedia() and
+                            MediaQueryList.addListener() JavaScript methods
+                        </li>
+                    </ul>
+                </p>
+
+
+            </section>
+
+            <section class="main-section" id="Syntax">
+
+                <header>
+                    Syntax
+                </header>
+
+                <p>
+                    A media query is composed of an optional media type and any number of media feature expressions.
+                    Multiple queries can be combined in various ways by using logical operators. Media queries are
+                    case-insensitive.
+
+                    <p>
+                        <header>
+                            Targeting media types
+                        </header>
+Media types describe the general category of a given device. Although websites are commonly designed with screens in mind, you may want to create styles that target special devices such as printers or audio-based screenreaders. For example, this CSS targets printers
+
+                    </p>
+                    <p>
+                    <code>
+                        @media print { ... }
+                    </code>
+
+                    </p>
+
+                    <p>
+                        <header>
+                            Targeting media features
+                        </header>
+                        
+                        Media features describe the specific characteristics of a given user agent, output device, or environment. For instance, you can apply specific styles to widescreen monitors, computers that use mice, or to devices that are being used in low-light conditions. This example applies styles when the user's primary input mechanism (such as a mouse) can hover over elements:
+                        
+                        
+                    </p>
+                    <p>
+                    <code>
+                        @media (hover: hover) { ... }
+                    </code>
+
+                    </p>
+
+                    <p>
+                        <header>
+                            Combining multiple types or features
+                        </header>
+                        
+                        
+The and keyword combines a media feature with a media type or other media features. This example combines two media features to restrict styles to landscape-oriented devices with a width of at least 30 ems:
+
+                        
+                    </p>
+                    <p>
+                    <code>
+                        @media (min-width: 30em) and (orientation: landscape) { ... }
+                    </code>
+
+                    </p>
+
+                    <p>
+                        <header>
+                            Testing for multiple queries
+                        </header>
+                        
+                        You can use a comma-separated list to apply styles when the user's device matches any one of various media types, features, or states. For instance, the following rule will apply its styles if the user's device has either a minimum height of 680px or is a screen device in portrait mode:
+                        
+                    </p>
+                    <p>
+                    <code>
+                        @media (min-height: 680px), screen and (orientation: portrait) { ... }
+                    </code>
+
+                    </p>
+
+                </p>
+
+                <p>A media query computes to true when the media type (if specified) matches the device on which a
+                    document is being displayed and all media feature expressions compute as true. Queries involving
+                    unknown media types are always false.
+
+                    <p>
+                    <code>
+                        @media false { ... }
+                    </code>
+                    </p>
+                </p>
+            </section>
+
+        </div>
+
+        <div class="column2">
+
+            <header id="Right_Section_Target">
+
+                <b>
+                    <h3>
+                        Media Queries (continued)
+                    </h3>
+
+                </b>
+
+            </header>
+
+            <section class="main-section" id="Media_Types">
+
+                <header>
+                    Media Types
+                </header>
+
+
+
+                <p>
+                    Media types describe the general category of a device. Except when using the not or only logical
+                    operators, the media type is optional and the all type will be implied.
+
+                    <ul>
+                        <li>
+                            all
+                            <ul>
+                                <li>
+                                    Suitable for all devices
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            print
+                        <ul>
+                            <li>
+                            Intended for paged material and documents viewed on a screen in print preview mode. (Please
+                            see
+                            paged media for information about formatting issues that are specific to these formats.)
+                            </li> 
+                        </ul>
+
+                        </li>
+
+                        <li>
+                            screen
+                            <ul>
+                            <li>
+                                Intended primarily for screens
+                                </li> 
+                            </ul>
+                        </li>
+
+                        <li>
+                            speech
+                            <ul>
+                                <li>
+                                    Intended primarily for speech synthesizers
+                                </li>
+                            </ul>
+                        
+                        </li>
+
+                    </ul>
+
+                </p>
+
+
+
+            </section>
+
+            <section class="main-section" id="Security">
+
+                <header>
+                    Security
+                </header>
+
+                <p>
+                    Because media queries provide insights into the capabilities—and by extension, the features and
+                    design—of the device the user is working with, there is the potential that they could be abused to
+                    construct a "fingerprint" which identifies the device, or at least categorizes it to some degree of
+                    detail that may be undesirable to users.
+                </p>
+
+                <p>
+                    Because of this potential, a browser may opt to fudge the returned values in some manner in order to
+                    prevent them from being used to precisely identify a computer.
+                </p>
+
+                <p>
+                    A browser might also offer additional measures in this area; for example, if Firefox's "Resist
+                    Fingerprinting" setting is enabled, many media queries report default values rather than values
+                    representing the actual device state.
+                </p>
+
+            </section>
+
+            <section class="main-section" id="Accessibility_Concerns">
+
+                <header>
+                    Accessibility Concerns
+                </header>
+
+                <p>
+                    To best accommodate people who adjust a site's text size, use ems when you need a <length> for your
+                        media queries.
+                </p>
+
+                <p>
+                    Both em and px are valid units, but em works better if the user changes the browser text size.
+                </p>
+
+                <p>
+                    Also consider using Level 4 media queries to improve the user's experience. For example,
+                    prefers-reduced-motion to detect if the user has requested that the system minimize the amount of
+                    animation or motion it uses.
+
+                </p>
+
+            </section>
+
+        </div>
+
+        <div class="footer">
+
+            <header id="Footer_Target">
+
+                <section class="footer">
+                    <b>
+                        Design by boake.ca
+                    </b>
+                </section>
+            </header>
+
+            <div>
+                <section class="footer">
+                    Copyright &copy; 2020
+                </section>                
+            </div>
+
+
+        </div>
+
+    </main>
+
+</body>
+
+<!-- partial -->
+
+<script  src="./script.js"></script>
+
+</body>
+
+</html>
