@@ -2,6 +2,8 @@
 
 ***This project is complete and fully tested passing all tests in FCC test script***
 
+Available for viewing at: https://netscr1be.github.io/TOP-FCC-Technical-Document-/
+
 User Story #1: I can see a main element with a corresponding id="main-doc", which contains the page's main content (technical documentation).
 
 User Story #2: Within the #main-doc element, I can see several section elements, each with a class of main-section. There should be a minimum of 5.
